@@ -1,4 +1,4 @@
 enum IbcmdAdditionalCommandEnum {
-	import = 'import',
-	apply = 'apply'
+  import = 'import',
+  apply = 'apply'
 }

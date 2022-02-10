@@ -1,6 +1,6 @@
 enum IbcmdCommandEnum {
-	create = 'create',
-	dump = 'dump',
-	restore = 'restore',
-	config = 'config'
+  create = 'create',
+  dump = 'dump',
+  restore = 'restore',
+  config = 'config'
 }
