@@ -6,9 +6,6 @@ export class IbcmdBuilder {
 	private outputPath: string;
 	private options: Map<string, string> = new Map();
 
-	constructor() {
-	}
-
 	setMode(mode: IbcmdModeEnum): this {
 		this.mode = mode;
 		return this;
@@ -25,17 +22,11 @@ export class IbcmdBuilder {
 	}
 
 	setDataPath(dataPath: string): this {
-		this.dataPath = `--data=${dataPath}`
+		this.dataPath = `--data=${dataPath}`;
 		return this;
 	}
 
-	setOption(
-		dbms: string,
-		server: string,
-		dbName: string,
-		dbUser: string,
-		dbPassword: string
-	): this {
+	setOption(dbms: string, server: string, dbName: string, dbUser: string, dbPassword: string): this {
 		this.options.set('--dbms', dbms);
 		this.options.set('--db-server', server);
 		this.options.set('--db-name', dbName);
@@ -47,19 +38,13 @@ export class IbcmdBuilder {
 	output(outputPath: string): string[] {
 		if (!this.dataPath) {
 			throw new Error('Не задана рабочая область!');
-		};
-		const args: string[] = [
-			this.mode,
-			this.command,
-			this.additionalCommand,
-			this.dataPath,
-		];
+		}
+		const args: string[] = [this.mode, this.command, this.additionalCommand, this.dataPath];
 		this.options.forEach((value, key) => {
 			args.push(key);
 			args.push(value);
 		});
-		args.push(outputPath)
+		args.push(outputPath);
 		return args;
 	}
-
 }
