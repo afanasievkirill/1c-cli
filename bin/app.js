@@ -10,12 +10,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.App = void 0;
-const prompt_service_1 = require("./core/prompt/prompt.service");
+const ibcmd_executor_1 = require("./commands/ibcmd/ibcmd.executor");
+const console_logger_1 = require("./out/console-logger/console-logger");
 class App {
     run() {
         return __awaiter(this, void 0, void 0, function* () {
-            const res = yield new prompt_service_1.PromptService().input('Число', 'number');
-            console.log(res);
+            new ibcmd_executor_1.IbcmdExecutor(console_logger_1.ConsoleLogger.getInstance()).execute();
         });
     }
 }

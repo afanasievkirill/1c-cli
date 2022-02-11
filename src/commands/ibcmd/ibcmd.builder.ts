@@ -26,7 +26,13 @@ export class IbcmdBuilder {
 		return this;
 	}
 
-	setOption(dbms: string, server: string, dbName: string, dbUser: string, dbPassword: string): this {
+	setOption(
+		dbms: string,
+		server: string,
+		dbName: string,
+		dbUser: string,
+		dbPassword: string,
+	): this {
 		this.options.set('--dbms', dbms);
 		this.options.set('--db-server', server);
 		this.options.set('--db-name', dbName);
